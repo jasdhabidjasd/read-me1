@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Read Me Jar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: url('https://i.pinimg.com/736x/ee/a6/a0/eea6a00ad27f058ec809621f3e551df4.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .jar {
+      background: rgba(255, 255, 255, 0.96);
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    }
+    h1 {
+      text-align: center;
+      color: #ff69b4;
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .note-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .note {
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .note:hover {
+      transform: scale(1.05);
+    }
+    .pink { background-color: #ffc1cc; }
+    .blue { background-color: #cce7ff; }
+    .yellow { background-color: #fff5ba; }
+    .green { background-color: #d2f8d2; }
+    .purple { background-color: #e6ccff; }
+    .mint { background-color: #baffc9; }
+    .lavender { background-color: #e6e6fa; }
+    .peach { background-color: #ffe5b4; }
+    .coral { background-color: #ffb6b6; }
+    .aqua { background-color: #c1f0f6; }
+    .gold { background-color: #ffeb99; }
+
+    .message-box {
+      margin-top: 15px;
+      padding: 22px;
+      border-radius: 15px;
+      background-color: #e6f2ff;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-line;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .jar { padding: 25px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 32px; }
+      .note { font-size: 18px; }
+      .message-box { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="jar">
+    <h1>Read me when..</h1>
+    <div class="grid">
+      <div class="note-wrapper">
+        <div class="note pink" onclick="showMessage('happy')">you’re happy</div>
+        <div id="message-happy" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note blue" onclick="showMessage('sad')">you’re sad</div>
+        <div id="message-sad" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note yellow" onclick="showMessage('motivation')">you need motivation</div>
+        <div id="message-motivation" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note green" onclick="showMessage('tired')">you’re tired</div>
+        <div id="message-tired" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note purple" onclick="showMessage('insecure')">you’re insecure</div>
+        <div id="message-insecure" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note mint" onclick="showMessage('doubting')">you’re doubting yourself</div>
+        <div id="message-doubting" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note coral" onclick="showMessage('disappointed')">you’re disappointed in yourself</div>
+        <div id="message-disappointed" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note peach" onclick="showMessage('angry')">you’re angry</div>
+        <div id="message-angry" class="message-box"></div>
+      </div>
+      <div class="note-wrapper">
+        <div class="note aqua" onclick="showMessage('proud')">you’re proud of yourself</div>
+        <div id="message-proud" class="message-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const messages = {
+      sad: [
+     `You don’t need to force yourself to be okay right now. Some days just feel heavier, and that doesn’t mean you’re doing something wrong. Let yourself feel what’s there without rushing it away. It will pass. Just breathe through it.`,
+      `If no one has said it today: I’m proud of you. Not for anything you achieved — just for waking up, for showing up, even when everything in you wanted to stay curled up. That counts too. That matters more than you know.`,
+      `You don’t have to carry everything by yourself. Whatever you're feeling, it's real — and it deserves space. You are allowed to rest without explaining, cry without apologizing, and be quiet without guilt.`,
+      `Some things are too big to fix with words. So if today feels like one of those days, this is just your permission to pause, unplug, and just be. Nothing is required of you except to keep going — gently.`,
+      `Your worth isn’t tied to your energy, your mood, or your productivity. You are valuable even in your slow days, your sad days, your barely-holding-it-together days. You don’t have to prove anything right now.`,
+      `Let the emotions come without fighting them. They won’t stay forever. You are not your sadness. It’s just something passing through, not who you are.`,
+      `You’re not falling apart. You’re just feeling everything all at once — and that makes sense in a world that demands too much, too often. Be kind to yourself. You’re allowed to not have the answers yet.`,
+      `Some days you don’t need a lesson or a reason — just a quiet reminder that you’re allowed to feel, and still be loved and safe at the same time. This is that reminder.`,
+      `The way you’re feeling right now? It’s not a weakness. It’s not something that makes you less. It’s just what happens when someone soft tries to live in a world that often forgets how to be gentle.`,
+      `You don’t need to snap out of it. You don’t need to be "better" by a certain time. Healing doesn’t follow a schedule. Take all the time you need.`,
+      `Even if no one else sees how hard you’re trying, I hope you feel it here: You’re doing your best, even if your best looks different today. That’s enough.`,
+      `You don’t have to always explain what’s wrong. Sometimes your heart just gets tired. That’s okay. Let it rest.`,
+      `If your thoughts are loud and your heart is tired, I hope this small message feels like someone sitting beside you quietly — not asking you to be okay, just choosing to stay.`,
+      `It’s okay if all you did today was breathe. It’s okay if all you could manage was surviving. Please don’t punish yourself for being human.`,
+      `You are not falling behind. You’re not broken. You’re just walking through something that takes time, and that’s more than okay.`,
+      `I don’t know what you're carrying today, but I hope you set it down for a while. Just a moment of stillness. Just one deep breath. Sometimes that’s all we can do — and that’s enough.`,
+      `Let yourself cry if you need to. There’s nothing weak about that. You’re releasing what your body no longer wants to hold in silence.`,
+      `You don’t have to earn gentleness. You don’t have to perform to be worthy of kindness. You deserve it simply because you’re here.`,
+      `Right now, you may not feel strong — but that doesn’t mean you’re not. Even on your quietest days, your presence matters.`,
+      `Everything you’re feeling is valid, and none of it disqualifies you from being loved, understood, or cared for. The heavy days come and go, but you? You’re still here. And that means something.`
+      ],
+      insecure: [
+      "You don’t need to be more or less than who you already are. There’s something deeply enough about the way you exist, even when you feel unsure. Even in the days you question your worth, it never disappears. You don’t need to prove anything to earn care, affection, or peace. You already matter, just by being here.",
+      "Some days you’ll feel like you’re too much, and other days, not enough. But the truth is, you’re neither — you’re just human. You’re growing in a world that constantly shifts its standards, and that’s exhausting. You’re allowed to be uncertain. You’re still worthy even in your questions.",
+      "I wish you could see what I see when you feel like hiding — how even your quiet moments carry a kind of softness that stays. You don’t have to shine all the time to be noticed. Sometimes it’s in your silence that your real beauty speaks. Please don’t shrink yourself. The world needs you in your full form, even if you’re still figuring out what that means.",
+      "You are not defined by the things you doubt about yourself. The kind of person you are — how you show up, how you care, how you try — that’s what makes you remarkable. Not your achievements. Not how loud or confident you appear. Just you.",
+      "There’s no one way to be beautiful. You don’t need to match anyone’s version of “enough.” If today you’re quiet, if today you feel small — that doesn’t make you less. That just means you're in a soft place. And that’s okay.",
+      "Even if you can’t feel confident right now, I hope you remember that confidence isn’t always loud. Sometimes, it's just showing up anyway, despite the noise in your head. And you're doing that. You're showing up. That’s something to be proud of.",
+      "You don’t have to have it all figured out to be lovable. You don’t need to fix yourself to be valid. The version of you right now, in this exact moment, deserves kindness — especially from yourself.",
+      "It’s okay if you’ve been hard on yourself lately. But I hope you take a moment to remember how far you’ve come, how much you’ve survived, and how many times you’ve chosen to keep going. That counts too. That means something.",
+      "Your feelings of insecurity are real, but they’re not the whole story. There’s more to you than what you see in your low moments. You have gentleness in you. You have resilience. You have a presence that quietly changes the space around you — even when you don’t notice.",
+      "You are not behind. You are not broken. You are just growing, slowly and softly. You don’t need to rush to become someone else. You’re allowed to be this version of you, right now, and still be enough.",
+      "There’s nothing wrong with needing reassurance. Everyone needs to be reminded they’re good, they’re worthy, they matter. This is your reminder — just in case the world forgot to give it today.",
+      "Even if your voice shakes, even if you stumble, even if you need more time — it doesn’t mean you’re weak. It means you’re real. It means you’re learning. It means you’re becoming.",
+      "The way you question yourself doesn’t mean you’re not trying. It means you care deeply about doing right, about being kind, about being better. That’s not failure — that’s growth.",
+      "Your softness is not something to fix. You don’t have to harden just to be taken seriously. You’re allowed to be gentle and still take up space. You’re allowed to be emotional and still be strong.",
+      "Just because you feel insecure today doesn’t mean you’ve lost all your progress. Healing isn’t linear, and confidence comes in waves. Be patient with the low tide. The next one is on its way.",
+      "You don’t need to earn your worth. You were born with it. Even when you doubt yourself, your presence in this world still matters more than you know.",
+      "You are allowed to not know what you’re doing sometimes. You’re still allowed to be proud of how far you’ve come, even if you're still figuring things out.",
+      "It’s okay to need reminders. You don’t have to be self-assured all the time. You’re doing your best, and that effort deserves to be honored — not doubted.",
+      "Insecurity may visit, but it doesn’t own you. Let it come, let it go, but never let it decide who you are. You are far too much beauty to be defined by a single moment of doubt.",
+      "Even if no one else tells you today — you are enough, just as you are. And you are allowed to believe that fully."
+      ],
+      doubting: [
+      "You’re not failing just because you’re questioning yourself. Doubt is a sign of growth, not weakness. It means you care about doing things right. It means you’re trying. And that’s worth honoring, even in the messiness of it all.",
+      "It’s okay to not feel sure all the time. You’re allowed to have moments where you second-guess everything. That doesn’t make you any less capable — it makes you human. And being human is enough.",
+      "I know you’re trying so hard. I know it feels like you’re not getting it right. But please don’t forget how far you’ve come — how many times you didn’t give up when you wanted to. You’ve proven your strength before. You’ll do it again.",
+      "When you doubt yourself, remember this: the fact that you care this much means you’re already on the right path. You’re not lost — you’re just pausing. And that’s okay.",
+      "You’re allowed to question yourself and still be on the right track. Doubt doesn’t cancel out your effort. It doesn’t erase your progress. It just means you’re thoughtful. And that’s a good thing.",
+      "You don’t need to have unshakable confidence to move forward. You just need a little bit of courage — the kind that lets you try anyway, even with trembling hands. That’s what real strength looks like.",
+      "Some of the most beautiful transformations happen during seasons of uncertainty. So if you’re doubting yourself right now, trust that something is still working quietly inside you. Growth isn’t always loud.",
+      "You won’t always feel like you’re doing enough. But your presence, your effort, your care — they matter more than you realize. You’re not behind. You’re not failing. You’re just unfolding.",
+      "Just because you’re doubting yourself doesn’t mean everyone else is. Sometimes your mind is louder than the truth. Please be gentle with yourself — you deserve peace too.",
+      "You don’t have to be certain to be strong. You don’t have to be fearless to move forward. Let yourself wobble. Let yourself wonder. You’re still becoming — and that’s a journey worth staying on.",
+      "Even if you’re full of doubt, you still get to try. You still get to dream. You still get to exist in this world as someone figuring it out. You’re allowed to take up space, even when you’re unsure.",
+      "It’s okay to look in the mirror and not have all the answers. You are more than what you feel in this moment of doubt. You are still good. You are still whole. You are still worthy.",
+      "You may feel like you’re not doing enough, not being enough — but I promise, even in this doubt, you are still deeply needed. Your voice matters. Your presence matters. You matter.",
+      "No one gets everything right the first time. Or the second. Or even the tenth. Mistakes and doubt are part of learning. They don’t make you unworthy — they make you real.",
+      "Self-doubt may speak loud, but your truth lives deeper. You are more than the voice that says 'you can’t.' Listen for the quieter voice — the one that says, 'keep going anyway.' That one’s yours too.",
+      "You’re not broken for having a hard time trusting yourself. It takes time. It takes patience. But you’re still on the way. And there is no shame in taking small, shaky steps forward.",
+      "Even if your confidence comes and goes, your worth doesn’t. It stays. You are still valuable. You are still enough. Whether you believe it today or not — that truth doesn’t change.",
+      "You don’t need to do anything extraordinary to be valuable. Being here, being you, doing your best — that already counts for more than you know. Doubt doesn’t erase your worth.",
+      "I hope you give yourself grace in this moment. Doubt is not a sign to stop — it’s a reminder to be gentle. Keep going, but don’t forget to breathe. You’re doing better than you think.",
+      "Even in your doubting moments, someone out there believes in you. Someone sees something beautiful in you. And I hope one day, that someone is you too."
+      ],
+      disappointed: [
+      "You don’t have to be perfect to be worthy of compassion. Disappointment in yourself is normal — it just means you care. But don’t let this one moment define your whole story. You’re still learning, still human, still deserving of kindness. Please be as gentle with yourself as you would be with someone you love.",
+      "You’re allowed to feel upset with yourself — that’s part of being reflective. But I hope you don’t stay stuck there. You are not just what you did wrong. You are also everything you’ve done right. Give yourself space to grow, not punishment.",
+      "It's okay if you didn’t meet your own expectations today. That doesn’t erase everything good about you. You are still thoughtful. Still growing. Still worthy of respect — especially your own. You don’t need to be perfect to start again.",
+      "You might feel like you let yourself down, but please don’t forget how often you’ve shown up, even when it was hard. One misstep, one off-day, one missed mark doesn’t undo all your effort. Forgive yourself. You’re still becoming.",
+      "Being disappointed in yourself doesn’t mean you’re a failure. It means you’re trying to be better. And that alone shows growth. Use this moment not as proof of your limits — but as a reminder that you still care enough to improve.",
+      "You are not the worst thing you’ve done. You are not the version of yourself that made the mistake. You are still the one who tries. Who feels. Who learns. Let this disappointment turn into direction — not shame.",
+      "Even in your regret, you’re still someone who’s worthy of love. You don’t need to be hard on yourself forever to prove you’ve changed. You’re already growing just by being aware. That’s something to hold onto.",
+      "No one gets it right all the time. And I know you hold yourself to a high standard, but please — give yourself space to be human. You’re allowed to falter. What matters most is how you speak to yourself when you do.",
+      "I hope you know it’s okay to make mistakes. Even big ones. You are still a work in progress, and that doesn’t make you less lovable — it makes you real. So take a breath, and let yourself begin again.",
+      "One bad day, one bad moment, one wrong choice — that isn’t the whole of you. You are a thousand soft things beyond this one feeling. Be kind to yourself as you figure things out. You’re not alone in this.",
+      "It’s easy to spiral when you’re disappointed in yourself. But pause for a moment. Ask yourself: “What would I tell a friend in this exact place?” That’s the voice I hope you use with yourself today. The kind one. The honest one.",
+      "You don’t need to carry this like a punishment. Acknowledge it. Feel it. But don’t let it harden you. You are not meant to stay stuck here. You are meant to move forward with more compassion, not more shame.",
+      "I hope you can forgive the version of you that didn’t know better. The one who was scared. Or tired. Or overwhelmed. That version of you didn’t need to be perfect — it needed patience. Just like you do now.",
+      "You are not alone in your regret. We all look back at moments and wish we had done better. But you’re here, right now, willing to grow. That’s something beautiful. Don’t overlook it.",
+      "You may feel like you failed, but what if this is just a turning point? What if this disappointment is leading you somewhere deeper — somewhere more honest? Let it teach you, not define you.",
+      "Mistakes are not permanent stains. They are instructions. They are lessons. Let this one guide you forward, not trap you in the past.",
+      "Your ability to feel disappointed in yourself doesn’t make you weak — it makes you aware. Let that awareness be a tool, not a weapon. You don’t need to keep hurting yourself to grow.",
+      "You are more than this version of yourself. Don’t let this low moment speak for every part of you. There is still goodness in you. Still softness. Still hope. Let that be louder.",
+      "I know how it feels to let yourself down. But I also know that forgiveness — especially the kind you give to yourself — is healing. You’re not who you were yesterday. And that means you can still become someone you’re proud of.",
+      "You are not disappointing — you are just learning. You’re allowed to not have it all figured out. You’re allowed to fall short sometimes. What matters is that you rise gently. And that you keep going."
+      ],
+      angry: [
+      "It’s okay to be angry. You don’t need to bottle it up or explain it away. Anger is a signal — it means something mattered to you. And that’s not wrong. Let yourself feel it without guilt.",
+      "You can be upset and still be good. You can be overwhelmed and still be kind. You’re not your anger — it’s just a reaction, not your whole identity. Feel it, then let it go when you’re ready.",
+      "Whatever made you angry today, you’re allowed to be hurt by it. That doesn’t make you overreacting. That doesn’t make you dramatic. Your emotions are trying to speak — listen without judging them.",
+      "You don’t always have to be calm. You’re allowed to shake a little. You’re allowed to need space. Take what you need to feel steady again.",
+      "There’s no shame in feeling anger. It’s just your body trying to protect you. Try to hold space for that feeling without letting it turn into self-blame. You don’t owe anyone perfection.",
+      "Anger isn’t always loud. Sometimes it’s just you sitting there with clenched fists, biting your tongue, feeling misunderstood. And in those moments, I hope you know: you’re not alone.",
+      "Don’t rush yourself to calm down. Take your time. Let the fire pass through. You’re allowed to protect your peace without pushing yourself to pretend you’re okay.",
+      "Even if your reasons for being upset feel “small,” they’re still valid. Don’t gaslight yourself. You’re allowed to care, even about the little things.",
+      "Try not to carry this too long. Not because it’s wrong to feel, but because you deserve lightness. You deserve peace. You deserve rest.",
+      "Your anger doesn’t make you wrong. What matters is what you choose to do with it — and I trust that you’re learning how to hold that fire with care.",
+      "You don’t need to apologize for every emotion you feel. You’re allowed to take up emotional space — even in frustration. The people who care will understand.",
+      "You’re doing your best, even when the world pushes your limits. Don’t let one moment of anger make you forget all the times you stayed gentle, even when it was hard.",
+      "Sometimes anger shows up because something inside you needed protection. Listen to it. Then ask yourself what your heart needs — not just what your mind wants to react to.",
+      "You’re not a bad person for being mad. You’re a real person. And real people feel things deeply. That’s not weakness. That’s honesty.",
+      "You don’t have to say everything right now. You don’t have to explain yourself while still heated. Just breathe. Clarity will return.",
+      "Let yourself cool off without guilt. Let the silence work for you. You’re not running away from the feeling — you’re choosing to come back to it softer.",
+      "Not everything has to be solved tonight. Not every emotion needs to be turned into action. You’re allowed to sit in this and wait for the fog to clear.",
+      "You are more than this emotion. You are allowed to feel, then release. You are allowed to be angry without being consumed by it.",
+      "You don’t have to carry anger just to prove you were hurt. You’re allowed to let it go — not for anyone else, but for your own peace.",
+      "When you’re ready, I hope you forgive yourself for anything you said or thought while hurting. You’re human. That doesn’t make you any less worthy of love, calm, or compassion."
+      ],
+      proud: [
+      "Take a second and really let it sink in — you're proud of yourself today. That’s such a beautiful thing. You’ve worked so hard, even through things no one saw. So please, don’t downplay this feeling. Let it be big. Let it stay. You’ve earned this moment.",
+      "I hope you know it’s okay to stand still and feel this. You did something worth being proud of. Don’t move on too fast. Let yourself feel every ounce of this glow. You deserve to bask in it without guilt.",
+      "Sometimes, we get so used to pushing through that we forget to look back and say, “I did that.” But you did. You showed up. You tried. And today, you get to be proud — not just of the result, but of the courage it took to try.",
+      "That warmth in your chest? That’s pride — and it’s yours to keep. No one else has to validate it. You know what you went through. You know what it took. Let yourself hold this feeling gently and fully.",
+      "This isn’t just a “small win.” This is proof. Proof that you can. Proof that you did. I hope you celebrate it like it matters — because it absolutely does.",
+      "You have every right to be proud of yourself. Not just for what you achieved, but for how you held yourself together, for how you didn’t quit, for how you kept choosing to keep going. That strength deserves to be seen — especially by you.",
+      "If you’re proud of yourself today, I hope you let that feeling bloom. Don’t shrink it. You didn’t just stumble here — you walked through so much to get here. Let yourself be proud of every single step.",
+      "You did it. Not perfectly. Not effortlessly. But honestly. And that’s more than enough. That’s something to be proud of forever.",
+      "This pride you feel? Let it anchor you. Let it remind you who you are — not just when things go wrong, but when they go right. You are capable. You are becoming. You are allowed to enjoy this.",
+      "Please don’t brush this off. Pride is not arrogance. It’s recognition. It’s acknowledgment. It’s you telling yourself: “I’m growing.”",
+      "Be proud of the small things. The quiet things. The invisible battles you won that no one saw. You saw them. You lived them. That’s enough.",
+      "There are so many versions of you who dreamed of this moment — who hoped for it, who worked toward it in silence. Today is for them, too. You made it here. Be proud of that.",
+      "Let this pride wrap around you like a soft reminder that you’re not who you used to be — and that’s a good thing. You’ve grown. You’ve changed. You’re learning to love your own journey.",
+      "Your pride doesn’t need to be explained. You’re allowed to feel it, even if others don’t see the full picture. You know what it took to get here. That’s enough.",
+      "Be proud of your resilience. Be proud of how you kept showing up for yourself. You didn’t wait for the world to cheer — you learned to clap for yourself. That’s strength.",
+      "Let this moment show you how far you’ve come — not just in results, but in mindset. You’re beginning to trust yourself. That’s something huge.",
+      "Even if this win feels small, let yourself sit in it. Let yourself rest in it. You don’t need to move on so quickly. This feeling is part of healing, too.",
+      "You didn’t need to be the best. You just needed to try. And you did. And today, you feel proud — not because everything was easy, but because you chose not to give up.",
+      "Pride in yourself is a form of self-love. And you’re allowed to feel that love fully. Let this be a reminder that you are growing into someone you’re learning to admire.",
+      "I hope you hold onto this version of you — the one who knows how far she’s come, and isn’t afraid to feel proud of that. This feeling? It’s real. And it’s yours."
+      ],
+      motivation: [
+      "You don’t have to be on fire with passion every day. Some days, it’s enough that you get up and face the world at all. You’re allowed to go slow, to take small steps, to rest without guilt. What matters is that you haven’t given up. And I’m proud of you for that, even if you can’t see the progress yet.",
+      "Motivation doesn’t always roar — sometimes it’s just a whisper telling you not to quit. And today, maybe that’s all you need: not pressure, but permission to keep trying. One task at a time. One breath at a time. You’ve made it through hard things before — this one is no different.",
+      "You don’t need to do everything right now. You’re not behind. Your progress is still real, even if it doesn’t look like someone else’s. Keep choosing yourself. Keep showing up. That quiet persistence inside you is already a kind of strength.",
+      "Even if the only thing you can do today is breathe and keep moving, that’s still enough. You’re not failing for feeling tired. You’re human. Let this season shape you slowly. You don’t need to rush — just keep going, one step at a time.",
+      "It’s okay if you’re not excited right now. It doesn’t mean you don’t care. Sometimes motivation gets buried under fatigue, stress, or fear. That’s normal. But deep down, your heart still wants something — and that desire is worth listening to.",
+      "You don’t need to have the whole plan. You just need to know your next small step — and take it. The rest will come when it’s time. Let your motivation come from love, not pressure. From curiosity, not fear.",
+      "You are not falling behind. You are real, and real people move at different paces. No timer is ticking. No one else gets to measure your worth by how fast you get there.",
+      "Let go of perfection. Just begin. You don’t need perfect conditions, perfect tools, or perfect timing — just the courage to take one imperfect action. That’s where momentum starts.",
+      "Sometimes, the bravest thing you can do is keep trying when no one’s watching. When no one’s clapping. When you feel invisible. That effort still matters. And I see you.",
+      "Your motivation might be quiet right now, but it hasn’t left you. It’s just waiting for you to be gentle with yourself. Speak kindly to your own mind. Remind yourself why you started.",
+      "You don’t need to feel ready — you just need to begin. Confidence will grow with motion. Let action lead the way, even if you’re scared. Even if you’re unsure. That’s how courage is built.",
+      "The road may feel long, but you don’t have to walk the whole thing today. Just show up for this moment. That’s already enough to keep moving forward.",
+      "You can rest and still be motivated. Breaks don’t cancel ambition — they protect it. Don’t burn yourself out to prove something. Protect your fire.",
+      "Your pace is not too slow. You are not too late. You are not failing. You are simply finding your way — and that takes time.",
+      "What you’re building matters — even if it’s still invisible to the world. You are laying a foundation, and that takes quiet, unseen effort. Trust that it’s adding up.",
+      "You don’t have to wait until you feel like doing it. Discipline is born when we act despite the feelings. But you can still be gentle. Motivation and kindness can go hand in hand.",
+      "Whatever your goal is, remember: your worth is not tied to the outcome. You matter, even if you fall short sometimes. Keep trying. Keep showing up. That’s what success really looks like.",
+      "You’re not lazy. You’re not weak. You’re tired. You’re overwhelmed. You’ve been carrying too much. Start with one thing. One little thing. And go from there.",
+      "You are allowed to move through your goals without comparison. This is your journey, no one else’s. Walk it in your own way — and let that be enough.",
+      "You’ve gotten through days you didn’t think you would. That’s proof of your strength. Let that remind you now: you’re more capable than your doubts let you believe."
+      ],
+      tired: [
+      "You’re allowed to rest. You don’t need to earn it. You don’t need to justify it. If your body and mind are asking for a break, that’s enough reason. You’ve done more than enough — just existing through hard days takes more energy than anyone sees.",
+      "It’s okay if all you did today was survive. If you’re tired, it doesn’t mean you’re lazy or weak. It means you’ve been doing your best with what you have, and that effort counts more than any checklist ever could.",
+      "You don’t always need to be productive to be valuable. Sometimes, the most important thing you can do is rest — to let yourself be quiet, unbusy, and soft for a while. You’re still worthy, even when you’re not accomplishing anything.",
+      "Please don’t be too hard on yourself for feeling exhausted. Your energy has been stretched, your thoughts have been loud, and you’ve been carrying more than anyone knows. It’s okay to pause. It’s okay to breathe.",
+      "Even machines need to recharge. You’re not a machine — you’re a soul, a heart, a body with limits. Honor them. Respect them. You’re not broken for needing time to recover.",
+      "You’ve made it through a lot already. Even if you’re tired now, that doesn’t make you any less strong. Resting isn’t quitting — it’s preparing for the next rise.",
+      "You’re not lazy for being tired. You’re not weak for needing sleep or silence or softness. You’re just human. And being human is hard. Be kind to yourself in your weariness.",
+      "Sometimes the most courageous thing you can do is admit you need a break. Not everything has to be pushed through. Some things need to be paused for. You matter enough to be taken care of — especially by you.",
+      "When your body is weary and your soul feels dim, I hope you don’t forget that rest is not a reward — it’s a right. You are not behind. You are healing.",
+      "You can rest without guilt. You can sleep in. You can take a day off. You can turn off your phone. The world will keep spinning — and when you’re ready, you’ll return stronger.",
+      "You don’t have to carry everything alone. Fatigue is a sign to reach out, to pause, to hold yourself with grace. You’re not weak — you’re just in need of care. That’s not something to be ashamed of.",
+      "Even if you haven’t crossed everything off your to-do list, you are still allowed to be proud of yourself for making it through the day. That’s enough. That’s more than enough.",
+      "If your eyes are heavy, if your thoughts are slow, if your heart is aching for peace — listen. Your body is trying to take care of you. Don’t ignore it just to keep up appearances.",
+      "You deserve to be tended to. You deserve softness. You deserve a world where you are not always giving. Today, let yourself receive. Even if all you receive is silence and stillness.",
+      "You are not defined by how much you can produce. You are not a task list. You are not a machine. You are a person — one who is allowed to be tired and still be whole.",
+      "Your exhaustion is valid. Whether it’s from emotional weight or physical demand, what you’re feeling is real. Don’t minimize it. Don’t brush it off. You’re allowed to honor your limits.",
+      "There is no shame in slowing down. There is no failure in needing rest. Sometimes the best thing you can do is stop moving for a while and just let yourself be.",
+      "You don’t need to keep proving your worth. Not through work. Not through pushing past your limit. You are worthy even when all you can do is rest and breathe.",
+      "You’ve done enough today. You’ve been enough today. Let that be true, even if it’s hard to believe. Let yourself rest — you’ve earned it without needing to try any harder.",
+      "One slow day, one tired night, one heavy moment — it doesn’t mean you’re falling apart. It means you’ve been holding on. And now it’s time to let go for a while and just be."
+      ],
+      happy: [
+      "Your joy today doesn’t erase your hard days, but it’s a beautiful reminder that they don’t last forever. Look at you now — breathing lighter, smiling without forcing it, letting your shoulders rest. I hope you let yourself fully feel this moment, without guilt, without hesitation. You’ve earned joy, not because you suffered, but because you exist. That’s reason enough.",
+      "The way your heart feels today — open, light, at ease — I hope it reminds you of who you are outside of survival mode. You are not just someone who gets through things. You’re also someone who deserves to feel free. Stay in this version of yourself for as long as you can. You’re allowed to be soft, happy, and whole.",
+      "It’s easy to move so fast that we miss the good. But not today. Today, I hope you notice every little thing that made you smile — a song, a message, a breeze — and realize it all belongs to you. This life is still offering you moments worth holding. Let yourself receive them.",
+      "You don’t need to be “productive” for your happiness to matter. Some days, joy is in just waking up with a lighter heart. That counts. That’s more than enough. Let yourself feel proud of even the quietest peace.",
+      "I know you’ve been through heaviness — so seeing you smile again, even quietly, is something worth celebrating. Don’t rush past it. Let this joy soak into your skin. Let it fill you up in all the places that once felt hollow.",
+      "When joy visits, I hope you don’t question it. Let it sit with you. Let it take your hand. It’s not too good to be true — it’s true because it found you. That’s the kind of thing happiness does when someone like you keeps going.",
+      "You are not a problem to fix. Today is proof that you are also a person who laughs, who heals, who glows. Don’t forget that — especially when the weight returns. Joy is not a stranger to you. It’s something that lives inside you.",
+      "You don’t have to share this feeling with anyone else to validate it. This moment is between you and your heart. And that is enough. Let yourself stretch out in this happiness. Let it wrap around you. You don’t have to explain it — just live in it.",
+      "Joy doesn’t need to be big to be real. Even if it’s just a calmness in your chest, a tiny burst of peace — I hope you take it seriously. That peace is your body saying thank you. That smile is your soul catching its breath.",
+      "If today felt better, don’t try to shrink it down or overanalyze it. Just be in it. Your happiness is not a fluke. It is part of your story. And no matter what tomorrow looks like, this moment matters — because you’re in it, alive, and smiling again.",
+      "I hope you’re letting yourself truly feel this lightness. Not rushing it, not doubting it — just letting it sit with you. Sometimes joy comes in quietly, like soft sunlight on your skin. It doesn’t need to be loud to be real. Whatever gave you peace today, hold it gently. You’ve earned it, even if you forget how.",
+      "You deserve to feel this kind of ease. You’ve carried so much without anyone seeing, and today — you get to exhale. Don’t shrink your joy for anyone. Don’t second guess the calm. Just be in it. This moment is yours.",
+      "I’m happy that you’re happy. That sounds so simple, but I really mean it. You’re often so thoughtful of others that it’s easy to forget your own light. But right now, it’s all yours — and I hope you stay in it as long as you can. You don’t need to earn this peace. You just need to allow it.",
+      "Even on the good days, I hope you pause and realize: this joy isn’t an accident. It’s the result of all the work, healing, and growing you’ve done. Don’t brush it off as luck — you made space for this. I hope you’re proud of that.",
+      "You don’t need a reason to be okay. You’re allowed to feel good for no particular reason — just because your heart feels lighter today. Let yourself enjoy that without guilt. You don’t need to apologize for feeling joy. It’s your birthright too.",
+      "Your happiness doesn’t have to look like anyone else’s. Maybe today it’s quiet, or maybe it’s in laughter. However it shows up, I hope you stay with it and let it remind you that good days are still possible — and you deserve all of them.",
+      "Let this moment of peace be something you store away — not out of fear that it will leave, but as a reminder that it’s always been able to return. Let it be a whisper to your future self: ‘You made it here once. You’ll get here again.’",
+      "Even when life has been chaotic, your ability to smile again means something. That resilience, that softness, that warmth — they’re part of who you are. This joy isn’t random. It’s yours because you kept going when it was hard to.",
+      "Sometimes the world gets too heavy, and moments like this — the peaceful ones — feel like rare treasures. So hold it. Don’t rush it. Be present with it. You’re allowed to feel the good things fully.",
+      "You didn’t need to “deserve” this moment — it simply came. Let that remind you that joy isn’t always about earning. Sometimes it’s about being still long enough for it to find you."
+      ]
+    };
+
+    function showMessage(type) {
+      const box = document.getElementById('message-' + type);
+      const msgArray = messages[type];
+      const randomIndex = Math.floor(Math.random() * msgArray.length);
+      box.innerText = msgArray[randomIndex];
+      box.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
